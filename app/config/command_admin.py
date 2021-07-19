@@ -17,11 +17,11 @@ def create_admin(app: Flask):
     def create():
         admin = {
             "login" : fake.name(),
-            "is_admin" : True,
-            "password_has" : fake.password()
+            "is_admin" : True
         }
-
+        password = fake.password()
         new_user = Users(**admin)
+        new_user.password = password
 
         add_all_commit(new_user)
 
